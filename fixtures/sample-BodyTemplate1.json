@@ -7,7 +7,7 @@
         "backgroundImage": {
             "sources": [
                 {
-                    "url": "https://m.media-amazon.com/images/G/01/mobile-apps/dex/alexa/alexa-skills-kit/tutorials/display-templates/1200x600-display-background._TTH_.png"
+                    "url": "https://example.com/background.png"
                 }
             ]
         },

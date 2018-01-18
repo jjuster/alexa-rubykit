@@ -1,9 +1,9 @@
 module AlexaRubykit
-  class DisplayBackgroundImage
+  class DisplayImage
     def initialize(url, description="", size=nil, width=nil, height=nil)
-      @back_ground_image = Hash.new()
-      @back_ground_image[:contentDescription] = description
-      @back_ground_image[:sources] = []
+      @display_image = Hash.new()
+      @display_image[:contentDescription] = description
+      @display_image[:sources] = []
 
       self.add_source(url, description, size, width, height)
     end
@@ -24,11 +24,11 @@ module AlexaRubykit
       if height
         source[:heightPixels] = height
       end
-      @back_ground_image[:sources].push(source)
+      @display_image[:sources].push(source)
     end
 
     def to_hash
-      @back_ground_image
+      @display_image
     end
   end
 end

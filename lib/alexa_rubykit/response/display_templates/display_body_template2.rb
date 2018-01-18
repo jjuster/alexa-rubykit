@@ -1,16 +1,17 @@
 module AlexaRubykit
 
     require 'alexa_rubykit/response/display_templates/display_template'
-    class DisplayBodyTemplate1 < DisplayTemplate
+    class DisplayBodyTemplate2 < DisplayTemplate
 
         require 'alexa_rubykit/response/display_templates/display_text_context'
 
         attr_accessor :title, :back_button, :background_image
-        attr_accessor :token, :text_context
+        attr_accessor :token, :text_context, :image
 
-        TEMPLATE_NAME       = "BodyTemplate1".freeze
+        TEMPLATE_NAME       = "BodyTemplate2".freeze
         def initialize()
             super
+            @image = []
             @token = TEMPLATE_NAME + "_token"
             @text_context = DisplayTextContext.new()
         end
@@ -23,6 +24,7 @@ module AlexaRubykit
                 :backButton => back_button_status,
                 :backgroundImage => @background_image.to_hash,
                 :title => @title,
+                :image => @image.to_hash,
                 :textContent => @text_context.to_hash
             }
             directive.to_json
