@@ -1,10 +1,10 @@
 require 'rspec'
-require 'alexa_rubykit/response/display_templates/display_body_template2'
+require 'alexa_rubykit/response/display_templates/display_body_template3'
 
 describe 'Request handling' do
   it 'validate json format' do
-    sample_json = JSON.parse(File.read('fixtures/sample-BodyTemplate2.json'))
-    template = AlexaRubykit::DisplayBodyTemplate2.new
+    sample_json = JSON.parse(File.read('fixtures/sample-BodyTemplate3.json'))
+    template = AlexaRubykit::DisplayBodyTemplate3.new
     template.token = sample_json["template"]["token"]
     template.back_button = (sample_json["template"]["backButton"] == "VISIBLE")
     context = AlexaRubykit::DisplayTextContext.new
@@ -22,21 +22,21 @@ describe 'Request handling' do
     )
     background_image = AlexaRubykit::DisplayImage.new(
       sample_json["template"]["backgroundImage"]["sources"][0]["url"],
-      sample_json["template"]["backgroundImage"]["contentDescription"]
+      sample_json["template"]["backgroundImage"]["contentDescription"],
+      sample_json["template"]["backgroundImage"]["sources"][0]["size"],
+      sample_json["template"]["backgroundImage"]["sources"][0]["widthPixels"],
+      sample_json["template"]["backgroundImage"]["sources"][0]["heightPixels"]
     )
     image = AlexaRubykit::DisplayImage.new(
       sample_json["template"]["image"]["sources"][0]["url"],
-      sample_json["template"]["image"]["contentDescription"],
-      sample_json["template"]["image"]["sources"][0]["size"],
-      sample_json["template"]["image"]["sources"][0]["widthPixels"],
-      sample_json["template"]["image"]["sources"][0]["heightPixels"]
+      sample_json["template"]["image"]["contentDescription"]
     )
     template.text_context = context
     template.background_image = background_image
     template.image = image
     template_json = JSON.parse(template.to_json)
 
-    expect(template_json["template"]["type"]).to eq('BodyTemplate2')
+    expect(template_json["template"]["type"]).to eq('BodyTemplate3')
     expect(template_json["template"]["textContent"]["primaryText"]["type"]).to eq(sample_json["template"]["textContent"]["primaryText"]["type"])
     expect(template_json["template"]["textContent"]["primaryText"]["text"]).to eq(sample_json["template"]["textContent"]["primaryText"]["text"])
     expect(template_json["template"]["textContent"]["secondaryText"]["type"]).to eq(sample_json["template"]["textContent"]["secondaryText"]["type"])
@@ -46,11 +46,11 @@ describe 'Request handling' do
 
     expect(template_json["template"]["backgroundImage"]["sources"][0]["url"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["url"])
     expect(template_json["template"]["backgroundImage"]["contentDescription"]).to eq(sample_json["template"]["backgroundImage"]["contentDescription"])
+    expect(template_json["template"]["backgroundImage"]["sources"][0]["size"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["size"])
+    expect(template_json["template"]["backgroundImage"]["sources"][0]["widthPixels"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["widthPixels"])
+    expect(template_json["template"]["backgroundImage"]["sources"][0]["heightPixels"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["heightPixels"])
 
     expect(template_json["template"]["image"]["sources"][0]["url"]).to eq(sample_json["template"]["image"]["sources"][0]["url"])
     expect(template_json["template"]["image"]["contentDescription"]).to eq(sample_json["template"]["image"]["contentDescription"])
-    expect(template_json["template"]["image"]["sources"][0]["size"]).to eq(sample_json["template"]["image"]["sources"][0]["size"])
-    expect(template_json["template"]["image"]["sources"][0]["widthPixels"]).to eq(sample_json["template"]["image"]["sources"][0]["widthPixels"])
-    expect(template_json["template"]["image"]["sources"][0]["heightPixels"]).to eq(sample_json["template"]["image"]["sources"][0]["heightPixels"])
   end
 end

@@ -1,0 +1,37 @@
+{
+    "type": "Display.RenderTemplate",
+    "template": {
+        "type": "BodyTemplate6",
+        "image": {
+            "sources": [
+                {
+                    "url": "https://example.com/image.png"
+                }
+            ]
+        },
+        "title": "BodyTemplate6 Display Title",
+        "token": "TOKEN",
+        "backgroundImage": {
+            "sources": [
+                {
+                    "url": "https://example.com/background.png"
+                }
+            ]
+        },
+        "textContent": {
+            "primaryText": {
+                "text": "BodyTemplate6 Primary Text",
+                "type": "PlainText"
+            },
+            "secondaryText": {
+                "text": "BodyTemplate6 Secondary Text",
+                "type": "PlainText"
+            },
+            "tertiaryText": {
+                "text": "BodyTemplate6 Tertiary Text",
+                "type": "PlainText"
+            }
+        },
+        "backButton": "HIDDEN"
+    }
+}
