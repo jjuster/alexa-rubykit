@@ -21,3 +21,4 @@ mkmf.log
 !.elasticbeanstalk/*.global.yml
 .DS_
 sync-upstream.sh
+vendor*
