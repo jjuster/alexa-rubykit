@@ -1,5 +1,6 @@
 require 'rspec'
 require 'alexa_rubykit/response'
+require 'alexa_rubykit/response/display_templates/display_body_template1'
 
 describe 'Builds appropriate response objects' do
   let(:response) { AlexaRubykit::Response.new }
@@ -147,6 +148,50 @@ describe 'Builds appropriate response objects' do
       response_object = response.build_response_object
       expect(response_object).to include(:directives)
       expect(response_object[:directives]).to include({'type' => 'Dialog.ConfirmIntent', 'updatedIntent' => nil})
+    end
+
+    it 'should create a valid response when display template in derective' do
+      sample_json = JSON.parse(File.read('fixtures/sample-BodyTemplate1.json'))
+      template = AlexaRubykit::DisplayBodyTemplate1.new
+      template.token = sample_json["template"]["token"]
+      template.back_button = (sample_json["template"]["backButton"] == "VISIBLE")
+      context = AlexaRubykit::DisplayTextContext.new
+      context.primary_text(
+        sample_json["template"]["textContent"]["primaryText"]["type"],
+        sample_json["template"]["textContent"]["primaryText"]["text"]
+      )
+      context.secondary_text(
+        sample_json["template"]["textContent"]["secondaryText"]["type"],
+        sample_json["template"]["textContent"]["secondaryText"]["text"]
+      )
+      context.tertiary_text(
+        sample_json["template"]["textContent"]["tertiaryText"]["type"],
+        sample_json["template"]["textContent"]["tertiaryText"]["text"]
+      )
+      background_image = AlexaRubykit::DisplayImage.new(
+        sample_json["template"]["backgroundImage"]["sources"][0]["url"]
+      )
+      template.text_context = context
+      template.background_image = background_image
+
+      response.add_display_template(template)
+      response_object = response.build_response_object
+      expect(response_object).to include(:directives)
+      template = response_object[:directives][0].to_hash
+      expect(template[:template][:type]).to eq('BodyTemplate1')
+    end
+
+    it 'should create a valid response when hint include in derective' do
+      response.add_hint_directive("some hint")
+      response_object = response.build_response_object
+      expect(response_object).to include(:directives)
+      expect(response_object[:directives]).to include({
+        'type' => 'Hint',
+        'hint' => {
+          'type' => "PlainText",
+          'text' => "some hint"
+        }
+      })
     end
   end
 end

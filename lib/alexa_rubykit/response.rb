@@ -47,19 +47,19 @@ module AlexaRubykit
     end
 
     def delegate_dialog_response
-      @directives = [Dialog.delegate_directive(intents)]
+      @directives.push(Dialog.delegate_directive(intents))
     end
 
     def elicit_dialog_response(slot)
-      @directives = [Dialog.elicit_slot_directive(slot, intents)]
+      @directives.push(Dialog.elicit_slot_directive(slot, intents))
     end
 
     def confirm_dialog_slot(slot)
-      @directives = [Dialog.confirm_slot_directive(slot, intents)]
+      @directives.push(Dialog.confirm_slot_directive(slot, intents))
     end
 
     def confirm_dialog_intent
-      @directives = [Dialog.confirm_intent_directive(intents)]
+      @directives.push(Dialog.confirm_intent_directive(intents))
     end
 
     def modify_slot(name, value, confirmation_status)
@@ -98,6 +98,20 @@ module AlexaRubykit
       card[:type] = 'Simple' if card[:type].nil?
       @card = card
       @card
+    end
+
+    def add_display_template(template)
+      @directives.push(template)
+    end
+
+    def add_hint_directive(text)
+      @directives << {
+        "type" => "Hint",
+        "hint" => {
+          "type" => "PlainText",
+          "text" => text            
+        }
+      }
     end
 
     # Adds a speech to the object, also returns a outputspeech object.
