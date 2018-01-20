@@ -10,6 +10,7 @@ module AlexaRubykit
 
     def initialize()
       @back_button = true
+      @title = ""
       @directive = {
         :type => "Display.RenderTemplate",
         :template => {}
