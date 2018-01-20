@@ -60,7 +60,7 @@ describe 'Request handling' do
   it 'should create device with attributes' do
     sample_request = JSON.parse(File.read('fixtures/sample-device-request.json'))
     intent_request = AlexaRubykit::build_request(sample_request)
-    expect(intent_request.device.device_support?).to be_truthy
+    expect(intent_request.device.display_support?).to be_truthy
     expect(intent_request.device.audio_player_support?).to be_truthy
     expect(intent_request.device.video_app_support?).to be_truthy
     expect(intent_request.device.device_id).to eq('amzn1.ask.device.')

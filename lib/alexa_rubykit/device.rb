@@ -13,7 +13,7 @@ module AlexaRubykit
       @device['deviceId'] if @device
     end
 
-    def device_support?
+    def display_support?
       !@device.nil? && !@device['supportedInterfaces'].nil? && !@device['supportedInterfaces']['Display'].nil?
     end
 
