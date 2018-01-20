@@ -13,14 +13,14 @@ module AlexaRubykit
         end
 
         def to_hash
-            @directive[:template] = {
-                :type => TEMPLATE_NAME,
-                :token => @token,
-                :backButton => back_button_status,
-                :backgroundImage => @background_image.to_hash,
-                :title => @title,
-                :textContent => @text_context.to_hash
-            }
+            template = Hash.new
+            template[:type] = TEMPLATE_NAME
+            template[:token] = @token
+            template[:backButton] = back_button_status
+            template[:title] = @title
+            template[:backgroundImage] = @background_image.to_hash unless @background_image.nil?
+            template[:textContent] = @text_context.to_hash
+            @directive[:template] = template
             @directive
         end
 
