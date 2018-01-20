@@ -101,7 +101,7 @@ module AlexaRubykit
     end
 
     def add_display_template(template)
-      @directives.push(template)
+      @directives.push(template.to_hash)
     end
 
     def add_hint_directive(text)
