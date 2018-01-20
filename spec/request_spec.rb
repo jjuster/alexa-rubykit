@@ -56,4 +56,13 @@ describe 'Request handling' do
     symbol_keys_hash = { test1: 'value', test2: { test3: 'value' } }
     expect(AlexaRubykit.transform_keys_to_symbols(string_keys_hash)).to eq(symbol_keys_hash)
   end
+
+  it 'should create device with attributes' do
+    sample_request = JSON.parse(File.read('fixtures/sample-device-request.json'))
+    intent_request = AlexaRubykit::build_request(sample_request)
+    expect(intent_request.device.device_support?).to be_truthy
+    expect(intent_request.device.audio_player_support?).to be_truthy
+    expect(intent_request.device.video_app_support?).to be_truthy
+    expect(intent_request.device.device_id).to eq('amzn1.ask.device.')
+  end
 end
