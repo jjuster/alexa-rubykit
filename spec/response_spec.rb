@@ -152,7 +152,7 @@ describe 'Builds appropriate response objects' do
 
     it 'should create a valid response when display template in derective' do
       sample_json = JSON.parse(File.read('fixtures/sample-BodyTemplate1.json'))
-      template = AlexaRubykit::DisplayBodyTemplate1.new
+      template = AlexaRubykit::DisplayTemplates::DisplayBodyTemplate1.new
       template.token = sample_json["template"]["token"]
       template.back_button = (sample_json["template"]["backButton"] == "VISIBLE")
       context = AlexaRubykit::DisplayTextContext.new
