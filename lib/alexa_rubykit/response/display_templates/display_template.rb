@@ -15,7 +15,7 @@ module AlexaRubykit
         :type => "Display.RenderTemplate",
         :template => {}
       }
-      @background_image = []
+      @background_image = nil
     end
 
     def back_button_status
