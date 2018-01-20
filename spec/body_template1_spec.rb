@@ -4,7 +4,7 @@ require 'alexa_rubykit/response/display_templates/display_body_template1'
 describe 'Request handling' do
   it 'validate json format' do
     sample_json = JSON.parse(File.read('fixtures/sample-BodyTemplate1.json'))
-    template = AlexaRubykit::DisplayTemplates::DisplayBodyTemplate1.new
+    template = AlexaRubykit::DisplayBodyTemplate1.new
     template.token = sample_json["template"]["token"]
     template.back_button = (sample_json["template"]["backButton"] == "VISIBLE")
     context = AlexaRubykit::DisplayTextContext.new
