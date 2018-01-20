@@ -1,5 +1,4 @@
 require 'rspec'
-require 'alexa_rubykit/response/display_templates/display_list_template2'
 
 describe 'Request handling' do
   it 'validate json format' do

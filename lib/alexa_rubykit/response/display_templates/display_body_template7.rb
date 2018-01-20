@@ -3,8 +3,6 @@ module AlexaRubykit
     require 'alexa_rubykit/response/display_templates/display_template'
     class DisplayBodyTemplate7 < DisplayTemplate
 
-        require 'alexa_rubykit/response/display_templates/display_text_context'
-
         attr_accessor :title, :back_button, :background_image
         attr_accessor :token, :image
 
