@@ -21,8 +21,8 @@ module AlexaRubykit
             else
                 item[:token] = "LIST_ITEM_" + @list_item.length.to_s
             end
-            if token
-                item[:image] = image
+            if item
+                item[:image] = image.to_hash
             end
             @list_item.push(item)
         end
