@@ -29,7 +29,7 @@ module AlexaRubykit
             @list_item.push(item)
         end
 
-        def to_json
+        def to_hash
             directive = Hash.new()
             directive[:template] = {
                 :type => TEMPLATE_NAME,
@@ -39,8 +39,11 @@ module AlexaRubykit
                 :title => @title,
                 :listItems => @list_item
             }
-            directive.to_json
+            directive
         end
 
+        def to_json
+            self.to_hash.to_json
+        end
     end
 end

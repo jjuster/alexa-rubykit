@@ -2,13 +2,6 @@
     "type": "Display.RenderTemplate",
     "template": {
         "type": "BodyTemplate6",
-        "image": {
-            "sources": [
-                {
-                    "url": "https://example.com/image.png"
-                }
-            ]
-        },
         "title": "BodyTemplate6 Display Title",
         "token": "TOKEN",
         "backgroundImage": {

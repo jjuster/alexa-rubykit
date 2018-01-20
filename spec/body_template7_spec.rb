@@ -19,7 +19,11 @@ describe 'Request handling' do
 
     expect(template_json["template"]["type"]).to eq('BodyTemplate7')
 
-    expect(template_json["template"]["backgroundImage"]["sources"][0]["url"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["url"])
-    expect(template_json["template"]["image"]["sources"][0]["url"]).to eq(sample_json["template"]["image"]["sources"][0]["url"])
+    expect(template_json["template"]["backgroundImage"]["sources"][0]).to include({
+      "url" => sample_json["template"]["backgroundImage"]["sources"][0]["url"]
+    })
+    expect(template_json["template"]["image"]["sources"][0]).to include({
+      "url" => sample_json["template"]["image"]["sources"][0]["url"]
+    })
   end
 end

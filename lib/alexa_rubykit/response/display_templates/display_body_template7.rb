@@ -15,7 +15,7 @@ module AlexaRubykit
             @token = TEMPLATE_NAME + "_token"
         end
 
-        def to_json
+        def to_hash
             directive = Hash.new()
             directive[:template] = {
                 :type => TEMPLATE_NAME,
@@ -25,8 +25,11 @@ module AlexaRubykit
                 :image => @image.to_hash,
                 :title => @title
             }
-            directive.to_json
+            directive
         end
 
+        def to_json
+            self.to_hash.to_json
+        end
     end
 end

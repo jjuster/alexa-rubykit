@@ -16,7 +16,7 @@ module AlexaRubykit
             @text_context = DisplayTextContext.new()
         end
 
-        def to_json
+        def to_hash
             directive = Hash.new()
             directive[:template] = {
                 :type => TEMPLATE_NAME,
@@ -27,8 +27,11 @@ module AlexaRubykit
                 :image => @image.to_hash,
                 :textContent => @text_context.to_hash
             }
-            directive.to_json
+            directive
         end
 
+        def to_json
+            self.to_hash.to_json
+        end
     end
 end

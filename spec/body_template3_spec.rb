@@ -37,20 +37,27 @@ describe 'Request handling' do
     template_json = JSON.parse(template.to_json)
 
     expect(template_json["template"]["type"]).to eq('BodyTemplate3')
-    expect(template_json["template"]["textContent"]["primaryText"]["type"]).to eq(sample_json["template"]["textContent"]["primaryText"]["type"])
-    expect(template_json["template"]["textContent"]["primaryText"]["text"]).to eq(sample_json["template"]["textContent"]["primaryText"]["text"])
-    expect(template_json["template"]["textContent"]["secondaryText"]["type"]).to eq(sample_json["template"]["textContent"]["secondaryText"]["type"])
-    expect(template_json["template"]["textContent"]["secondaryText"]["text"]).to eq(sample_json["template"]["textContent"]["secondaryText"]["text"])
-    expect(template_json["template"]["textContent"]["tertiaryText"]["type"]).to eq(sample_json["template"]["textContent"]["tertiaryText"]["type"])
-    expect(template_json["template"]["textContent"]["tertiaryText"]["text"]).to eq(sample_json["template"]["textContent"]["tertiaryText"]["text"])
+    expect(template_json["template"]["textContent"]["primaryText"]).to include({
+      "type" => sample_json["template"]["textContent"]["primaryText"]["type"],
+      "text" => sample_json["template"]["textContent"]["primaryText"]["text"]
+    })
+    expect(template_json["template"]["textContent"]["secondaryText"]).to include({
+      "type" => sample_json["template"]["textContent"]["secondaryText"]["type"],
+      "text" => sample_json["template"]["textContent"]["secondaryText"]["text"]
+    })
+    expect(template_json["template"]["textContent"]["tertiaryText"]).to include({
+      "type" => sample_json["template"]["textContent"]["tertiaryText"]["type"],
+      "text" => sample_json["template"]["textContent"]["tertiaryText"]["text"]
+    })
 
-    expect(template_json["template"]["backgroundImage"]["sources"][0]["url"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["url"])
     expect(template_json["template"]["backgroundImage"]["contentDescription"]).to eq(sample_json["template"]["backgroundImage"]["contentDescription"])
-    expect(template_json["template"]["backgroundImage"]["sources"][0]["size"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["size"])
-    expect(template_json["template"]["backgroundImage"]["sources"][0]["widthPixels"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["widthPixels"])
-    expect(template_json["template"]["backgroundImage"]["sources"][0]["heightPixels"]).to eq(sample_json["template"]["backgroundImage"]["sources"][0]["heightPixels"])
+    expect(template_json["template"]["backgroundImage"]["sources"][0]).to include({
+      "url" => sample_json["template"]["backgroundImage"]["sources"][0]["url"]
+    })
 
-    expect(template_json["template"]["image"]["sources"][0]["url"]).to eq(sample_json["template"]["image"]["sources"][0]["url"])
     expect(template_json["template"]["image"]["contentDescription"]).to eq(sample_json["template"]["image"]["contentDescription"])
+    expect(template_json["template"]["image"]["sources"][0]).to include({
+      "url" => sample_json["template"]["image"]["sources"][0]["url"]
+    })
   end
 end
