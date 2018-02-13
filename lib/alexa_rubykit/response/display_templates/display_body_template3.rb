@@ -9,7 +9,7 @@ module AlexaRubykit
         TEMPLATE_NAME       = "BodyTemplate3".freeze
         def initialize()
             super
-            @image = []
+            @image = nil
             @token = TEMPLATE_NAME + "_token"
             @text_context = DisplayTextContext.new()
         end
@@ -20,7 +20,7 @@ module AlexaRubykit
             template[:token] = @token
             template[:backButton] = back_button_status
             template[:title] = @title
-            template[:image] = @image.to_hash
+            template[:image] = @image.to_hash unless @image.nil?
             template[:backgroundImage] = @background_image.to_hash unless @background_image.nil?
             template[:textContent] = @text_context.to_hash
             @directive[:template] = template
