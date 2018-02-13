@@ -34,6 +34,8 @@ module AlexaRubykit
         @request = IntentRequest.new(json_request)
       when /SessionEnded/
         @request = SessionEndedRequest.new(json_request)
+      when /Display.ElementSelected/
+        @request = ElementSelectedRequest.new(json_request)
       else
         raise ArgumentError, 'Invalid Request Type.'
     end
