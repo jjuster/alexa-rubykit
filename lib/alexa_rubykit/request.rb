@@ -27,7 +27,7 @@ module AlexaRubykit
   def self.build_request(json_request)
     raise ArgumentError, 'Invalid Alexa Request.' unless AlexaRubykit.valid_alexa?(json_request)
     @request = nil
-    puts json_request['request']['type']
+
     case json_request['request']['type']
       when /Launch/
         @request = LaunchRequest.new(json_request)
