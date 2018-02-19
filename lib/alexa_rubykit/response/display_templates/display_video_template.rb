@@ -1,14 +1,12 @@
 module AlexaRubykit
 
-    require 'alexa_rubykit/response/display_templates/display_template'
-    class DisplayVideoTemplate < DisplayTemplate
+    class DisplayVideoTemplate
 
-        attr_accessor :title
-        attr_accessor :video_src, :subtitle
+        attr_accessor :video_src, :title, :subtitle
 
         TEMPLATE_NAME       = "VideoApp.Launch".freeze
         def initialize()
-            super
+            @title = nil
             @video_src = nil
             @subtitle = ""
         end
@@ -23,8 +21,7 @@ module AlexaRubykit
                     :subtitle => @subtitle
                 }
             }
-            @directive[:template] = template
-            @directive
+            template
         end
 
         def to_json
