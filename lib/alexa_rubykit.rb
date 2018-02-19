@@ -15,6 +15,7 @@ require 'alexa_rubykit/response/display_templates/display_list_template1'
 require 'alexa_rubykit/response/display_templates/display_list_template2'
 require 'alexa_rubykit/response/display_templates/display_text_context'
 require 'alexa_rubykit/response/display_templates/display_image'
+require 'alexa_rubykit/response/display_templates/display_video_template'
 
 module AlexaRubykit
   # Prints a JSON object.
