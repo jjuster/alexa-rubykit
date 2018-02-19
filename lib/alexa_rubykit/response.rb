@@ -144,7 +144,7 @@ module AlexaRubykit
       @response[:directives] = @directives unless @directives.empty?
       @response[:card] = @card unless @card.nil?
       @response[:reprompt] = @reprompt unless session_end && @reprompt.nil?
-      @response[:shouldEndSession] = session_end
+      @response[:shouldEndSession] = session_end unless session_end.nil?
       @response
     end
 

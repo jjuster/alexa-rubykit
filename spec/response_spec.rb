@@ -193,5 +193,13 @@ describe 'Builds appropriate response objects' do
         }
       })
     end
+
+    it 'should exclude session flag when end_session is nil' do
+      response_object = response.build_response_object
+      expect(response_object.has_key?(:shouldEndSession)).to be true
+
+      response_object = response.build_response_object(nil)
+      expect(response_object.has_key?(:shouldEndSession)).to be false
+    end
   end
 end
