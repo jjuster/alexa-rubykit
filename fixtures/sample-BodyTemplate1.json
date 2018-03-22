@@ -1,0 +1,30 @@
+{
+    "type": "Display.RenderTemplate",
+    "template": {
+        "type": "BodyTemplate1",
+        "title": "BodyTemplate1 Display Title",
+        "token": "TOKEN",
+        "backgroundImage": {
+            "sources": [
+                {
+                    "url": "https://example.com/background.png"
+                }
+            ]
+        },
+        "textContent": {
+            "primaryText": {
+                "text": "BodyTemplate1 Primary Text",
+                "type": "PlainText"
+            },
+            "secondaryText": {
+                "text": "BodyTemplate1 Secondary Text",
+                "type": "PlainText"
+            },
+            "tertiaryText": {
+                "text": "BodyTemplate1 Tertiary Text",
+                "type": "PlainText"
+            }
+        },
+        "backButton": "HIDDEN"
+    }
+}

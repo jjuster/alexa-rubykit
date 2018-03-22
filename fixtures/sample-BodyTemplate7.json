@@ -1,0 +1,23 @@
+{
+    "type": "Display.RenderTemplate",
+    "template": {
+        "type": "BodyTemplate7",
+        "image": {
+            "sources": [
+                {
+                    "url": "https://example.com/image.png"
+                }
+            ]
+        },
+        "title": "BodyTemplate7 Display Title",
+        "token": "TOKEN",
+        "backgroundImage": {
+            "sources": [
+                {
+                    "url": "https://example.com/background.png"
+                }
+            ]
+        },
+        "backButton": "HIDDEN"
+    }
+}

@@ -6,7 +6,7 @@ module AlexaRubykit
   class Request
     require 'json'
     require 'alexa_rubykit/session'
-    attr_accessor :version, :type, :session, :json # global
+    attr_accessor :version, :type, :session, :json, :device # global
     attr_accessor :request_id, :locale # on request
 
     def initialize(json_request)
@@ -14,6 +14,8 @@ module AlexaRubykit
       raise ArgumentError, 'Request ID should exist on all Requests' if @request_id.nil?
       @version = json_request['version']
       @locale = json_request['request']['locale']
+      @device = AlexaRubykit::Device.new(json_request)
+
       @json   = json_request
 
       # TODO: We probably need better session handling.
@@ -25,6 +27,7 @@ module AlexaRubykit
   def self.build_request(json_request)
     raise ArgumentError, 'Invalid Alexa Request.' unless AlexaRubykit.valid_alexa?(json_request)
     @request = nil
+
     case json_request['request']['type']
       when /Launch/
         @request = LaunchRequest.new(json_request)
@@ -32,6 +35,8 @@ module AlexaRubykit
         @request = IntentRequest.new(json_request)
       when /SessionEnded/
         @request = SessionEndedRequest.new(json_request)
+      when 'Display.ElementSelected'
+        @request = ElementSelectedRequest.new(json_request)
       else
         raise ArgumentError, 'Invalid Request Type.'
     end

@@ -1,0 +1,158 @@
+{
+    "type": "Display.RenderTemplate",
+    "template": {
+        "type": "ListTemplate1",
+        "title": "ListTemplate1 Display Title",
+        "token": "TOKEN",
+        "listItems": [
+            {
+                "token": "TOKEN0",
+                "image": {
+                    "contentDescription": "Item Description",
+                    "sources": [
+                        {
+                            "url": "https://example.com/item1.png",
+                            "widthPixels": 88,
+                            "heightPixels": 88,
+                            "size": "X_SMALL"
+                        }
+                    ]
+                },
+                "textContent": {
+                    "primaryText": {
+                        "text": "Primary Text 0",
+                        "type": "PlainText"
+                    },
+                    "secondaryText": {
+                        "text": "Secondary Text 0",
+                        "type": "PlainText"
+                    },
+                    "tertiaryText": {
+                        "text": "Tertiary Text 0",
+                        "type": "PlainText"
+                    }
+                }
+            },
+            {
+                "token": "TOKEN1",
+                "image": {
+                    "contentDescription": "Item Description",
+                    "sources": [
+                        {
+                            "url": "https://example.com/item1.png",
+                            "widthPixels": 88,
+                            "heightPixels": 88,
+                            "size": "X_SMALL"
+                        }
+                    ]
+                },
+                "textContent": {
+                    "primaryText": {
+                        "text": "Primary Text 1",
+                        "type": "PlainText"
+                    },
+                    "secondaryText": {
+                        "text": "Secondary Text 1",
+                        "type": "PlainText"
+                    },
+                    "tertiaryText": {
+                        "text": "Tertiary Text 1",
+                        "type": "PlainText"
+                    }
+                }
+            },
+            {
+                "token": "TOKEN2",
+                "image": {
+                    "contentDescription": "Item Description",
+                    "sources": [
+                        {
+                            "url": "https://example.com/item2.png",
+                            "widthPixels": 88,
+                            "heightPixels": 88,
+                            "size": "X_SMALL"
+                        }
+                    ]
+                },
+                "textContent": {
+                    "primaryText": {
+                        "text": "Primary Text 2",
+                        "type": "PlainText"
+                    },
+                    "secondaryText": {
+                        "text": "Secondary Text 2",
+                        "type": "PlainText"
+                    },
+                    "tertiaryText": {
+                        "text": "Tertiary Text 2",
+                        "type": "PlainText"
+                    }
+                }
+            },
+            {
+                "token": "TOKEN3",
+                "image": {
+                    "contentDescription": "Item Description",
+                    "sources": [
+                        {
+                            "url": "https://example.com/item3.png",
+                            "widthPixels": 88,
+                            "heightPixels": 88,
+                            "size": "X_SMALL"
+                        }
+                    ]
+                },
+                "textContent": {
+                    "primaryText": {
+                        "text": "Primary Text 3",
+                        "type": "PlainText"
+                    },
+                    "secondaryText": {
+                        "text": "Secondary Text 3",
+                        "type": "PlainText"
+                    },
+                    "tertiaryText": {
+                        "text": "Tertiary Text 3",
+                        "type": "PlainText"
+                    }
+                }
+            },
+            {
+                "token": "TOKEN4",
+                "image": {
+                    "contentDescription": "Item Description",
+                    "sources": [
+                        {
+                            "url": "https://example.com/item4.png",
+                            "widthPixels": 88,
+                            "heightPixels": 88,
+                            "size": "X_SMALL"
+                        }
+                    ]
+                },
+                "textContent": {
+                    "primaryText": {
+                        "text": "Primary Text 4",
+                        "type": "PlainText"
+                    },
+                    "secondaryText": {
+                        "text": "Secondary Text 4",
+                        "type": "PlainText"
+                    },
+                    "tertiaryText": {
+                        "text": "Tertiary Text 4",
+                        "type": "PlainText"
+                    }
+                }
+            }
+        ],
+        "backgroundImage": {
+            "sources": [
+                {
+                    "url": "https://example.com/background.png"
+                }
+            ]
+        },
+        "backButton": "HIDDEN"
+    }
+}

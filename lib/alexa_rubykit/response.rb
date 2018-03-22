@@ -47,19 +47,19 @@ module AlexaRubykit
     end
 
     def delegate_dialog_response
-      @directives = [Dialog.delegate_directive(intents)]
+      @directives.push(Dialog.delegate_directive(intents))
     end
 
     def elicit_dialog_response(slot)
-      @directives = [Dialog.elicit_slot_directive(slot, intents)]
+      @directives.push(Dialog.elicit_slot_directive(slot, intents))
     end
 
     def confirm_dialog_slot(slot)
-      @directives = [Dialog.confirm_slot_directive(slot, intents)]
+      @directives.push(Dialog.confirm_slot_directive(slot, intents))
     end
 
     def confirm_dialog_intent
-      @directives = [Dialog.confirm_intent_directive(intents)]
+      @directives.push(Dialog.confirm_intent_directive(intents))
     end
 
     def modify_slot(name, value, confirmation_status)
@@ -100,6 +100,20 @@ module AlexaRubykit
       @card
     end
 
+    def add_display_template(template)
+      @directives.push(template.to_hash)
+    end
+
+    def add_hint_directive(text)
+      @directives << {
+        "type" => "Hint",
+        "hint" => {
+          "type" => "PlainText",
+          "text" => text            
+        }
+      }
+    end
+
     # Adds a speech to the object, also returns a outputspeech object.
     def say_response(speech, end_session = true, ssml = false)
       output_speech = add_speech(speech,ssml)
@@ -130,7 +144,7 @@ module AlexaRubykit
       @response[:directives] = @directives unless @directives.empty?
       @response[:card] = @card unless @card.nil?
       @response[:reprompt] = @reprompt unless session_end && @reprompt.nil?
-      @response[:shouldEndSession] = session_end
+      @response[:shouldEndSession] = session_end unless session_end.nil?
       @response
     end
 
