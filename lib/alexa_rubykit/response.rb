@@ -45,6 +45,27 @@ module AlexaRubykit
         }
       }
     end
+    
+    def add_clock_text(text, text_overflow: "marquee", text_speed: 500)
+      @directives << {
+        'type' => "Alexa.Presentation.APLT.RenderDocument",
+        'document' => {
+            'type' => "APLT",
+            'version' => "1.0",
+            'mainTemplate' => {
+                'items' => [
+                    {
+                        'type' => "Text",
+                        'text' => text,
+                        'text_overflow' => text_overflow,
+                        'msPerCharacter' => text_speed
+                    }
+                ]
+            }
+        },
+        'datasources' => {}
+      } 
+    end
 
     def delegate_dialog_response
       @directives.push(Dialog.delegate_directive(intents))
