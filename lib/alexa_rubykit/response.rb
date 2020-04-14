@@ -53,16 +53,18 @@ module AlexaRubykit
         'version' => '1.0',
         'document' => {
             'type' => "APLT",
-            'version' => "1.0",
+            'version' => "1.3",
             'mainTemplate' => {
-              'item' => {
+              'items' => [{
                   'type' => "Text",
+                  'id' => "text1",
                   'text' => text,
                   'text_overflow' => text_overflow,
                   'msPerCharacter' => text_speed
-               }
+               }]
             }
         },
+        'onMount': {},
         'datasources' => {}
       } 
     end
