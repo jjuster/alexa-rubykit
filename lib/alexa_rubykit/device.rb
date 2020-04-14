@@ -19,7 +19,7 @@ module AlexaRubykit
     end
     
     def clock_text_support?
-      !@device.nil? && !@device['Viewports'].nil? && !@device['Viewports'].detect{||vp| vp['type'] == 'APLT' && vp['characterFormat'] == 'SEVEN_SEGMENT' }.nil?
+      !@device.nil? && !@device['Viewports'].nil? && !@device['Viewports'].detect{|vp| vp['type'] == 'APLT' && vp['characterFormat'] == 'SEVEN_SEGMENT' }.nil?
     end    
 
     def audio_player_support?
