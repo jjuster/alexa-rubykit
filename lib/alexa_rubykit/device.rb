@@ -6,6 +6,7 @@ module AlexaRubykit
         @device = nil
       else
         @device = device['context']['System']['device'] 
+        @device['Viewports'] = device['context']['Viewports']        
       end
     end
 
