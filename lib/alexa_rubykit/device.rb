@@ -16,6 +16,10 @@ module AlexaRubykit
     def display_support?
       !@device.nil? && !@device['supportedInterfaces'].nil? && !@device['supportedInterfaces']['Display'].nil?
     end
+    
+    def clock_text_support?
+      !@device.nil? && !@device['supportedInterfaces'].nil? && !@device['supportedInterfaces']['Alexa.Presentation.APLT'].nil?
+    end    
 
     def audio_player_support?
       !@device.nil? && !@device['supportedInterfaces'].nil? && !@device['supportedInterfaces']['AudioPlayer'].nil?
