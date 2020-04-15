@@ -53,12 +53,15 @@ module AlexaRubykit
         'version' => '1.0',
         'document' => {
             'type' => "APLT",
-            'version' => "1.3",
+            'version' => "1.0",
             'mainTemplate' => {
+              'parameters' => [
+                'payload'
+              ],              
               'items' => [{
                   'type' => "Text",
                   'id' => "text1",
-                  'text' => text,
+                  'text' => "${payload.textData.text}",
                   'text_overflow' => text_overflow,
                   'msPerCharacter' => text_speed
                }]
@@ -67,8 +70,11 @@ module AlexaRubykit
               'idleTimeout' => idle_timeout
             }
         },
-        'onMount': {},
-        'datasources' => {}
+        'datasources' => {
+          'textData' => {
+            'text' => text
+          }
+        }
       } 
     end
 
