@@ -46,7 +46,7 @@ module AlexaRubykit
       }
     end
     
-    def add_clock_text(text, token='apltToken', text_overflow: "marquee", text_align: 'center', text_speed: 800, idle_timeout: 20000)
+    def add_clock_text(text, token='apltToken', text_overflow: "marquee", text_align: 'center', text_speed: 250, idle_timeout: 20000)
       @directives << {
         'type' => "Alexa.Presentation.APLT.RenderDocument",
         'token' => token,
