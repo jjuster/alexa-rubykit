@@ -62,7 +62,7 @@ module AlexaRubykit
                   'type' => "Text",
                   'id' => "text1",
                   'text' => "${payload.textData.text}",
-                  'text_overflow' => text_overflow,
+                  'overflow' => text_overflow,
                   'msPerCharacter' => text_speed
                }]
             },
